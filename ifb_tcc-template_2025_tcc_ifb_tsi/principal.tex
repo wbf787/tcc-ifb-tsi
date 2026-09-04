@@ -11,12 +11,11 @@
 % Codificação: UTF-8
 % LaTeX:  abnTeX2
 % ---------------------------------------------------------------------------------------------------------------
+
 % ---
-% Correção temporária de conflito do regexpatch (TeX Live 2026)
+% 1. CORREÇÃO INTACTA VIA HOOK (Dispara exatamente antes do regexpatch ser lido)
 % ---
-\makeatletter
-\let\xshowcmd\undefined
-\makeatother
+\AddToHook{file/before/regexpatch.sty}{\let\xshowcmd\undefined}
 
 % ---------------------------------------------------------------------------------------------------------------
 %                                          CARREGA CLASSE PERSONALIZADA
