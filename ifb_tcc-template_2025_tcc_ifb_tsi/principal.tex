@@ -11,7 +11,17 @@
 % Codificação: UTF-8
 % LaTeX:  abnTeX2
 % ---------------------------------------------------------------------------------------------------------------
+% ---
+% Correção temporária de conflito do regexpatch (TeX Live 2026)
+% ---
+\makeatletter
+\let\xshowcmd\undefined
+\makeatother
 
+% O seu \documentclass deve vir logo abaixo disso:
+\documentclass[
+    % ... suas configurações existentes ...
+]{configuracoes/norma-abntex2}
 % ---------------------------------------------------------------------------------------------------------------
 %                                          CARREGA CLASSE PERSONALIZADA
 % ---------------------------------------------------------------------------------------------------------------
