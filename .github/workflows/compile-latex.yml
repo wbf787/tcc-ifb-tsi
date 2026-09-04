@@ -11,9 +11,9 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
-    # TeX Live 2022...
+    # TeX Live 2024...
     container:
-      image: ghcr.io/xu-cheng/texlive-full:2022
+      image: ghcr.io/xu-cheng/texlive-full:2024
 
     steps:
       # 1. Baixa o código do repositório
