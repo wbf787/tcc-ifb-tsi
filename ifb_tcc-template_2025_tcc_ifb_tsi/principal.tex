@@ -13,9 +13,16 @@
 % ---------------------------------------------------------------------------------------------------------------
 
 % ---
-% 1. CORREÇÃO INTACTA VIA HOOK (Dispara exatamente antes do regexpatch ser lido)
+% 1. CORREÇÃO COMPLETA DE CONFLITOS COM REGEXPATCH (TeX Live 2026)
 % ---
-\AddToHook{file/before/regexpatch.sty}{\let\xshowcmd\undefined}
+\makeatletter
+\AddToHook{file/before/regexpatch.sty}{%
+  \let\xshowcmd\@undefined
+  \let\xpretocmd\@undefined
+  \let\xapptocmd\@undefined
+  \let\xpatchcmd\@undefined
+}
+\makeatother
 
 % ---------------------------------------------------------------------------------------------------------------
 %                                          CARREGA CLASSE PERSONALIZADA
