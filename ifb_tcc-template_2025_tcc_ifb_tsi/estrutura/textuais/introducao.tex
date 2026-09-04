@@ -2,53 +2,57 @@
 %                                  INTRODUÇÃO
 % ----------------------------------------------------------------------------
 
-\chapter{INTRODUÇÃO}zz
+\chapter{INTRODUÇÃO}
 \label{chap:introducao}
 
-O \LaTeX{} é uma ferramenta poderosa e flexível para criar textos de alta qualidade. Ele oferece um ambiente organizado para produzir documentos acadêmicos bem formatados, permitindo que você se concentre no conteúdo e na pesquisa, enquanto a formatação é cuidada automaticamente.
+A disciplina de Sistemas Operacionais (SO) constitui um pilar fundamental e obrigatório na grade curricular dos cursos de Computação e Informática, conforme as diretrizes da Sociedade Brasileira de Computação (SBC) \cite{kioki2008simulador, moraes2010simulador, oliveira2018algos}. O papel central desta disciplina é apresentar os conceitos e mecanismos que atuam como uma ponte entre os recursos físicos do hardware (registradores, barramentos, processador e memória) e os softwares e aplicações de alto nível \cite{maziero2002reflexoes, costa2018moss}. Contudo, lecionar e aprender esses conceitos representa um desafio histórico de alta complexidade pedagógica devido à vasta carga teórica e ao elevado grau de abstração dos mecanismos internos do sistema \cite{barbosa2013dinnerrace, moraes2010simulador}.
 
-Faça aqui, uma introdução geral da área do conhecimento à qual o tema escolhido
-está ligado.
+De acordo com \citeonline{maziero2002reflexoes}, uma das principais dificuldades no ensino de sistemas operacionais reside na ausência de uma estrutura linear para a ementa, o que torna trabalhosa a definição de um avanço didático sequencial e progressivo entre seus tópicos interdependentes. Assuntos críticos como gerência de memória, sincronização de processos concorrentes e escalonamento de CPU ocorrem em um nível em que não são diretamente observáveis, exigindo que o estudante desenvolva uma apurada capacidade de abstração mental para compreender sua real dinâmica \cite{teixeira2001siso, dutra2026pampasim}. No modelo tradicional de ensino --- essencialmente expositivo e centrado no professor (instrutivista) ---, o uso de referências teóricas estáticas e desenhos em quadros frequentemente distancia o aluno do objeto de estudo, resultando em desmotivação e em uma compreensão fragmentada da matéria \cite{barbosa2013dinnerrace, maia2003simulador, moraes2010simulador}.
+
+Frente a essas limitações, a literatura acadêmica sugere o uso de ferramentas de software para aproximar a teoria da realidade prática. Tradicionalmente, identificam-se duas principais abordagens em ambientes de sala de aula: os Sistemas Operacionais Reais Didáticos (como o MINIX, NACHOS e TROPIX) e os Simuladores Didáticos de Sistemas Operacionais (como o pioneiro SOsim) \cite{kioki2008simulador, christopher1993nachos, johnston1988multiprocessor}. Embora os sistemas didáticos reais permitam que os estudantes alterem o código-fonte de um kernel funcional, eles exigem uma curva de aprendizado íngreme, profundo domínio de linguagem C/C++ e infraestrutura de hardware específica, o que frequentemente inviabiliza sua aplicação em cursos de menor carga horária ou com perfis curriculares focados em tecnologia e desenvolvimento de sistemas de informação \cite{machado2004framework, kioki2008simulador}.
+
+Nesse cenário, os Simuladores Didáticos emergem como uma alternativa viável e pedagógica altamente eficaz \cite{maziero2002reflexoes}. Sob a perspectiva construtivista de Jean Piaget, explorada por \citeonline{machado2004framework}, o simulador atua como um "micro-mundo" interativo e simplificado, onde o estudante assume o papel de agente ativo de seu próprio aprendizado, formulando hipóteses, manipulando parâmetros e aprendendo por meio de experimentações e da observação das consequências de seus erros \cite{teixeira2001siso, maia2005constructivist}. 
+
+Historicamente, ferramentas como o SOsim, desenvolvido por \citeonline{maia2001sosim}, consolidaram-se como importantes recursos gráficos para visualização de gerência de processos e memória \cite{scamati2017esorv}. Contudo, o avanço tecnológico demanda ferramentas modernas e acessíveis. Propostas recentes, como o simulador PampaSim \cite{dutra2026pampasim}, inovaram o campo didático ao propor um motor baseado na técnica de Simulação por Eventos Discretos (SED) aliado a um rigor arquitetural estruturado no padrão Model-View-ViewModel (MVVM). O PampaSim destaca-se por apresentar um ambiente de execução determinístico que viabiliza a observação exata da transição de estados de processos --- incluindo o estado "Em Espera/Bloqueado", crítico para ilustrar as interrupções de Entrada e Saída (I/O) --- e análise de desempenho com gráficos de Gantt e métricas de throughput em tempo real \cite{dutra2026pampasim}.
+
+Entretanto, uma parcela significativa das ferramentas clássicas ainda depende de plataformas desktop específicas (como o Windows para o SOsim original) ou de tecnologias web antigas de difícil execução em navegadores modernos, como Java Applets ou plugins proprietários \cite{reis2009tbcso, scamati2017esorv}. Com a ascensão da Web reativa, surge a oportunidade de desenvolver ambientes de simulação integrados, portáveis, flexíveis e acessíveis sem a necessidade de instalações ou plugins locais, promovendo uma melhoria contínua na relação de ensino-aprendizagem de sistemas concorrentes \cite{moraes2010simulador, dutra2026pampasim}.
 
 \section{Tema}
-A melhor forma de determinar o tema abordado é através de hipóteses. A hipótese
-consiste em uma afirmativa que você considera verdadeira e que vai provar ou
-buscar provar ao longo de seu trabalho. Outra forma é delimitando o problema em
-forma de uma pergunta de partida. Apresente uma visão geral do assunto que será
-abordado no trabalho.
+O tema deste Trabalho de Conclusão de Curso (TCC) insere-se na área de informática aplicada à educação, concentrando-se especificamente no desenvolvimento de um Simulador Didático de Sistemas Operacionais de arquitetura Web Reativa. O foco principal da ferramenta proposta está na representação e simulação do subsistema de Gerência de Processos (algoritmos de escalonamento de CPU) e de Gerência de Memória Principal e Virtual. A proposta alinha-se aos princípios da pedagogia construtivista \cite{machado2004framework}, buscando materializar conceitos complexos e dinâmicos de concorrência e compartilhamento de recursos em uma interface reativa moderna com Vue.js no frontend e um motor de simulação determinístico desenvolvido em Java no backend \cite{moraes2010simulador, dutra2026pampasim}.
 
 \section{Problema}
-Dedique este tópico a esclarecer o que o pretende de fato com o seu esforço de
-pesquisa. Problema é a questão a ser respondida pelo trabalho, que motivou a sua
-realização. É uma questão que já tomou se formou em sua mente, derivada de
-teorias da área pesquisada e de sua observação sobre um fenômeno.  Normalmente
-se utilizam os subitens abaixo como meios de se determinar claramente os
-objetivos, o que também colabora para a delimitação do escopo do trabalho. Está
-estreitamente ligado ao objetivo geral, que, normalmente, consiste em encontrar
-a resposta para o problema de pesquisa.  O que você viu que é um problema que
-precisa de solução? É viável? Você consegue fazer? O problema é sempre uma
-dificuldade, uma lacuna.
+Embora o uso de simuladores pedagógicos seja amplamente aceito como uma prática eficaz no ensino de Sistemas Operacionais \cite{maziero2002reflexoes}, a maioria das soluções disponíveis enfrenta limitações tecnológicas ou arquiteturais que dificultam sua adoção generalizada nos laboratórios de computação modernos. Ferramentas consolidadas como o SOsim \cite{maia2001sosim} foram construídas para ecossistemas desktop específicos (como Delphi/Windows), o que limita sua portabilidade \cite{reis2009tbcso, scamati2017esorv}. Outras propostas baseadas em simulações web dependem de tecnologias descontinuadas ou exigem do estudante a leitura e compilação de código complexo de baixo nível, desviando o foco do aprendizado conceitual para o domínio de sintaxes específicas de programação \cite{ribeiro2014simulador, moraes2010simulador}.
+
+Adicionalmente, muitos dos simuladores simplistas falham em apresentar uma visão integrada dos subsistemas do SO, concentrando-se de forma isolada em apenas um tópico (como escalonamento de CPU) sem demonstrar o impacto concorrente sobre a memória física ou as operações de I/O de forma coordenada \cite{maziero2002reflexoes, dutra2026pampasim}. Diante dessa lacuna, formula-se o seguinte problema de pesquisa: \textbf{Como o desenvolvimento de um simulador didático de sistemas operacionais, utilizando uma arquitetura web reativa modular baseada em eventos discretos, pode atenuar as barreiras de abstração e potencializar o aprendizado ativo de gerência de processos e memória sem impor barreiras de instalação ou de curva de aprendizado tecnológica aos estudantes?}
 
 \subsection{Objetivo geral}
-É a resposta ao problema especificado acima, ou seja, aquilo que se pretende
-fazer e que, depois de atingido, estará concluído o trabalho.. Alguns verbos
-utilizados para determinar o objetivo geral: contribuir / facilitar / subsidiar
-/ propor / clarear / permitir / agregar / compreender.
+O objetivo geral deste trabalho consiste em projetar, implementar e validar um protótipo de Simulador Didático de Sistemas Operacionais Web Reativo, denominado \textbf{SimuOS-Web}, que viabilize a simulação dinâmica, interativa e determinística de algoritmos de escalonamento de processos e de alocação de memória virtual, servindo como ferramenta de apoio pedagógico para minimizar as dificuldades de abstração de alunos e professores em disciplinas de Sistemas Operacionais.
 
 \subsection{Objetivos específicos}
-Os objetivos específicos detalham os objetivos gerais através de etapas ou fases
-de pesquisa. Devem ser utilizados verbos no infinitivo, assinalando as ações
-propostas para alcançar o objetivo geral. Os verbos utilizados aqui são os de
-ação, que serão utilizados na metodologia.
-
+Para alcançar o objetivo geral proposto, definem-se as seguintes etapas de trabalho:
+\begin{enumerate}
+    \item Realizar uma revisão bibliográfica e um mapeamento sistemático dos simuladores acadêmicos descritos na literatura (como SOsim, PampaSim, BrasilOS e MOSS), identificando suas qualidades pedagógicas, arquiteturas de software e lacunas de usabilidade;
+    \item Modelar o comportamento do simulador de forma determinística por meio de uma técnica de Simulação por Eventos Discretos (SED), definindo o ciclo de vida do processo através de uma máquina de estados finitos que integre explicitamente os estados Novo, Pronto, Executando, Bloqueado (Espera por I/O) e Finalizado;
+    \item Desenvolver uma API em Java estruturada para o motor de simulação lógica de gerência de processos e alocação de memória, garantindo isolamento da lógica de controle em relação à camada de exibição;
+    \item Desenvolver uma interface gráfica do usuário (GUI) web responsiva e reativa com Vue.js, que permita ao aluno configurar cenários de simulação em tempo real, gerenciar tabelas de controle de processos (BCP), manipular fatias de tempo (quantum) e monitorar métricas de desempenho (como tempo de espera, turnaround e Gantt);
+    \item Conduzir um ensaio experimental com alunos e docentes do Curso de Tecnologia em Sistemas para Internet do Instituto Federal de Brasília (IFB), aplicando testes qualitativos e quantitativos para mensurar a usabilidade da ferramenta e o ganho pedagógico proporcionado por sua adoção.
+\end{enumerate}
 
 \section{Estrutura do TCC}
-Neste item você vai descrever como está constituída a monografia, indicando o
-que será encontrado em cada uma das sessões seguintes.
+Este Trabalho de Conclusão de Curso está estruturado em seis capítulos distintos, organizados de forma a detalhar desde a concepção conceitual até a validação prática da solução de software:
+\begin{itemize}
+    \item \textbf{Capítulo 1 --- Introdução:} Apresenta a contextualização do tema, a motivação acadêmica fundamentada nas dificuldades de ensino da disciplina, a delimitação do problema de pesquisa, os objetivos gerais e específicos que norteiam o projeto;
+    \item \textbf{Capítulo 2 --- Fundamentação Teórica e Trabalhos Relacionados:} Discute as bases clássicas da gerência de processos e memória, os conceitos de simulação por eventos discretos e os paradigmas pedagógicos instrutivista e construtivista aplicados ao ensino de computação, além de analisar comparativamente as principais soluções de simuladores didáticos existentes;
+    \item \textbf{Capítulo 3 --- Metodologia e Especificação Arquitetural:} Detalha a modelagem de sistemas adotada, a definição da máquina de estados dos processos, as regras de simulação determinística de memória e processos, bem como a descrição da arquitetura desacoplada do SimuOS-Web;
+    \item \textbf{Capítulo 4 --- Desenvolvimento e Tecnologias:} Apresenta as técnicas e frameworks de software livre empregados na construção do backend em Java e da interface reativa em Vue.js, abordando o mapeamento de APIs, estruturação de componentes e as principais rotinas lógicas codificadas;
+    \item \textbf{Capítulo 5 --- Resultados e Discussões:} Relata o processo de testes do simulador com cenários didáticos estruturados, a aplicação prática do protótipo com os discentes do IFB e a análise detalhada dos questionários de avaliação de usabilidade;
+    \item \textbf{Capítulo 6 --- Conclusões e Trabalhos Futuros:} Sintetiza as principais contribuições acadêmicas e tecnológicas do trabalho, as limitações identificadas no protótipo e propõe caminhos de desenvolvimento futuros para a expansão do ecossistema do simulador.
+\end{itemize}
 
 \subsection{Classificação da Pesquisa}
-Neste item será apresentada a classificação da pesquisa quanto aos objetivos
-(exploratória, descritiva ou explicativa); aos procedimentos (Pesquisa
-bibliográfica, Pesquisa documental, Pesquisa experimental, Estudo de caso
-controle, Levantamento, Estudo de caso ou Estudo de campo) e ao método de
-investigação científica (qualitativa ou quantitativa).
+Este trabalho fundamenta-se sob uma classificação metodológica bem delineada em três vertentes:
+\begin{itemize}
+    \item \textbf{Quanto aos Objetivos:} Classifica-se como uma pesquisa \textbf{exploratória} e \textbf{descritiva}. É exploratória pois investiga novas alternativas tecnológicas e de usabilidade para aproximar conceitos abstratos de SO da realidade dos discentes de graduação, e descritiva pois detalha a arquitetura, o comportamento e o fluxo de dados do simulador proposto;
+    \item \textbf{Quanto aos Procedimentos:} Trata-se de uma pesquisa \textbf{bibliográfica} (sustentada na análise das bases históricas e artigos de periódicos das disciplinas de SO e informática educativa) e \textbf{experimental} (ou de desenvolvimento de tecnologia), focada no planejamento, codificação e validação empírica de um protótipo funcional de software didático;
+    \item \textbf{Quanto ao Método de Investigação (Abordagem):} Adota-se uma abordagem \textbf{qualitativa} e \textbf{quantitativa} (método misto). A vertente quantitativa aplica-se na avaliação do desempenho dos algoritmos simulados, no levantamento de dados numéricos nos testes experimentais e nos índices estatísticos de aceitação da ferramenta. A vertente qualitativa concentra-se na interpretação de depoimentos dos docentes e alunos colaboradores e na observação direta do comportamento cognitivo dos discentes ao interagirem de forma livre com o ambiente do simulador.
+\end{itemize}
