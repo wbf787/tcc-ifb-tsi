@@ -1,0 +1,69 @@
+# ==========================================
+# Arquivos auxiliares padrão do LaTeX
+# ==========================================
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+*.fls
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# ==========================================
+# Arquivos de bibliografia (BibTeX / Biber)
+# ==========================================
+*.bbl
+*.bcf
+*.blg
+*-blx.bib
+*.run.xml
+
+# ==========================================
+# Arquivos de ferramentas de compilação (ex: latexmk)
+# ==========================================
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.pdfsync
+
+# ==========================================
+# Arquivos de pacotes (glossários, índices, listagens de código)
+# ==========================================
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.idx
+*.ind
+*.ilg
+*.maf
+*.mtc
+*.mtc0
+*.lol
+
+# ==========================================
+# PDF Final (Recomendado)
+# ==========================================
+# Arquivos PDF são binários e mudam a cada compilação, o que gera histórico pesado e conflitos inúteis no Git.
+# O recomendado é gerar o PDF localmente e manter apenas o código-fonte (.tex, .bib, imagens) no GitHub.
+# Se você realmente PRECISA salvar o PDF no GitHub, comente a linha abaixo colocando uma '#' na frente.
+*.pdf
+
+# ==========================================
+# Arquivos de sistema e editores
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
