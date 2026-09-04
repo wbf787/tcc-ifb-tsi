@@ -11,24 +11,21 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
-    # TeX Live latest...
-    container:
-      image: ghcr.io/xu-cheng/texlive-full:latest
-
     steps:
-      # 1. Baixa o código do repositório
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2. Compila o PDF usando o latexmk (utilitário nativo que gerencia o XeLaTeX e o BibTeX sozinho)
+      # Compilador alterado para pdfLaTeX para garantir portabilidade de fontes no Linux
       - name: Compilar PDF do LaTeX
-        run: |
-          cd ifb_tcc-template_2025_tcc_ifb_tsi
-          latexmk -xelatex -interaction=nonstopmode principal.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: principal.tex
+          working_directory: ifb_tcc-template_2025_tcc_ifb_tsi
+          compiler: pdflatex
 
-      # 3. Disponibiliza o PDF compilado para download
       - name: Upload do PDF Compilado
         uses: actions/upload-artifact@v4
         with:
           name: TCC_Final_PDF
           path: ifb_tcc-template_2025_tcc_ifb_tsi/principal.pdf
+
