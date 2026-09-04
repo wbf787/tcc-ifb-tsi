@@ -3,7 +3,7 @@ name: Compilar TCC LaTeX
 on:
   push:
     branches:
-      - main # Executa a cada push no branch principal
+      - main
   pull_request:
     branches:
       - main
@@ -12,21 +12,18 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      # 1. Baixa o código do repositório para a vm do GitHub
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2. Compila usando TeX Live 2024 espero...
       - name: Compilar PDF do LaTeX
         uses: xu-cheng/latex-action@v3
         with:
           root_file: principal.tex
           working_directory: ifb_tcc-template_2025_tcc_ifb_tsi
           compiler: xelatex
-          # Força o GitHub a usar o TeX Live 2024, evitando o conflito do regexpatch do TeX Live 2026
-          image: ghcr.io/xu-cheng/texlive-full:2024
+          # Força o uso do TeX Live 2022, onde o regexpatch funciona perfeitamente
+          image: ghcr.io/xu-cheng/texlive-full:2022
 
-      # 3. Guarda o PDF gerado (principal.pdf) como artefato para download
       - name: Upload do PDF Compilado
         uses: actions/upload-artifact@v4
         with:
