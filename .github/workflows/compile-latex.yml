@@ -22,7 +22,8 @@ jobs:
         with:
           root_file: principal.tex
           working_directory: ifb_tcc-template_2025_tcc_ifb_tsi # Pasta onde estão os arquivos
-          compiler: xelatex # FORÇA o uso do XeLaTeX para aceitar as fontes do modelo TSI
+#          compiler: xelatex # FORÇA o uso do XeLaTeX para aceitar as fontes do modelo TSI
+          compiler: pdflatex # FORÇA o uso do XeLaTeX para aceitar as fontes do modelo TSI
 
       # 3. Guarda o PDF gerado (principal.pdf) como artefato para download
       - name: Upload do PDF Compilado
