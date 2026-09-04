@@ -1,0 +1,33 @@
+name: Compilar TCC LaTeX
+
+on:
+  push:
+    branches:
+      - main # Execute a cada push no branch principal
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Baixa o código do seu repositório para a máquina virtual do GitHub
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2. Compila o documento LaTeX usando o arquivo principal.tex
+      - name: Compilar PDF do LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: principal.tex # Arquivo mestre específico do modelo do IFB
+          # Nota: O modelo do IFB TSI geralmente compila perfeitamente com pdfLaTeX (padrão).
+          # Caso use fontes ou pacotes especiais que exijam XeLaTeX, descomente a linha abaixo:
+          # compiler: xelatex
+
+      # 3. Guarda o PDF gerado (principal.pdf) como artefato para download
+      - name: Upload do PDF Compilado
+        uses: actions/upload-artifact@v4
+        with:
+          name: TCC_Final_PDF
+          path: principal.pdf # PDF de saída gerado a partir do principal.tex
