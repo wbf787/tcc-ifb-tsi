@@ -3,7 +3,7 @@ name: Compilar TCC LaTeX
 on:
   push:
     branches:
-      - main # Executa a cada push no branch principal
+      - main
   pull_request:
     branches:
       - main
@@ -12,19 +12,17 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      # 1. Baixa o código do seu repositório para a máquina virtual do GitHub
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2. Compila usando a versão v2 (TeX Live anterior/estável)
+      # Tentando um LaTeX anterior, mais estável...
       - name: Compilar PDF do LaTeX
-        uses: xu-cheng/latex-action@v2 # REBAIXADO PARA V2 PARA EVITAR ERROS DO TEX LIVE 2026
+        uses: xu-cheng/latex-action@v2
         with:
           root_file: principal.tex
           working_directory: ifb_tcc-template_2025_tcc_ifb_tsi
           compiler: xelatex
 
-      # 3. Guarda o PDF gerado (principal.pdf) como artefato para download
       - name: Upload do PDF Compilado
         uses: actions/upload-artifact@v4
         with:
